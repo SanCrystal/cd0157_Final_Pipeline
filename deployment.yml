@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-flask-deployment
+  name: hello-flask-deployment
   labels:
-    app: simple-flask
+    app: hello-flask
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: simple-flask
+      app: hello-flask
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -17,12 +17,12 @@ spec:
   template:
     metadata:
       labels:
-        app: simple-flask
+        app: hello-flask
     spec:
       containers:
-      - name: simple-flask
+      - name: hello-flask
         # image: IMAGE_TAG
-        image: sudkul/simple-flask
+        image: santa007/hello-flask
         securityContext:
           privileged: false
           readOnlyRootFilesystem: false
